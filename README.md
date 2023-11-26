@@ -15,7 +15,7 @@ _**The framework is pointing to new URL, because old URL is no longer working._*
 - No separate installation of webdrivers required anymore (yay! 🎉) <br>
 - Removed 'drivers' folder altogether (no longer needed)
 - Removed WebDriverManager dependency from the POM <br>
-- Added new web locators (pointing to new URL)
+- Updated some web locators (pointing to new URL)
 - Updated Cucumber-Java and Cucumber-JUnit, and other dependencies to their latest versions <br>
 - The following reports are functioning:
   - Built-in cucumber reports when run from TestRunner classes 
