@@ -1,13 +1,13 @@
 package pages;
 
-import base.BaseClass;
+import base.WebDriverManager;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class DashboardPage extends BaseClass {
+public class DashboardPage extends WebDriverManager {
     @FindBy(className = "oxd-userdropdown-name")
     public WebElement essUserFullName;       // <== public WebElement welcome = driver.findElement(By.id("welcome"));
 
@@ -22,6 +22,6 @@ public class DashboardPage extends BaseClass {
     public List<WebElement> mainMenu;
 
     public DashboardPage() {
-        PageFactory.initElements(driver, this);
+        PageFactory.initElements(getDriver(), this);
     }
 }

@@ -1,10 +1,9 @@
 package steps;
 
-import base.BaseClass;
+import base.WebDriverManager;
 import io.cucumber.java.en.*;
-import org.junit.Assert;
 
-public class SearchEmployeeSteps extends BaseClass {
+public class SearchEmployeeSteps extends WebDriverManager {
     @Given("user is on the Exelenter homepage")
     public void user_is_on_the_exelenter_homepage() {
         setUp();

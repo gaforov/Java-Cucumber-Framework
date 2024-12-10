@@ -19,8 +19,6 @@ public class ConfigsReader {
             properties = new Properties();
             properties.load(fis);
             fis.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }

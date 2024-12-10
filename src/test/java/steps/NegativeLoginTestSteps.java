@@ -1,6 +1,6 @@
 package steps;
 
-import base.BaseClass;
+import base.WebDriverManager;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-public class NegativeLoginTestSteps extends BaseClass {
+public class NegativeLoginTestSteps extends WebDriverManager {
     @When("I enter an invalid username andOr password I will see an error message")
     public void i_enter_an_invalid_username_and_or_password_i_will_see_an_error_message(DataTable dataTable) {
         List<Map<String, String>> mapList = dataTable.entries();
@@ -47,7 +47,7 @@ public class NegativeLoginTestSteps extends BaseClass {
 
             Assert.assertEquals("Login Error Message is Incorrect", map.get("ErrorMessage"), loginPage.loginErrorMessage.getText());
             System.out.println("Negative Login Test Passed. Error Message '" + map.get("ErrorMessage") + "' is displayed");
-            driver.navigate().refresh();
+            getDriver().navigate().refresh();
             wait(1);
         }
     }

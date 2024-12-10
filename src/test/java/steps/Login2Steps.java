@@ -1,10 +1,10 @@
 package steps;
 
-import base.BaseClass;
+import base.WebDriverManager;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
 
-public class Login2Steps extends BaseClass {
+public class Login2Steps extends WebDriverManager {
     @When("admin user logs in with valid credentials")
     public void admin_user_logs_in_with_valid_credentials() {
         //1st way

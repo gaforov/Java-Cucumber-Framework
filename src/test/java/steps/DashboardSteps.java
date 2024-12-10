@@ -1,10 +1,9 @@
 package steps;
 
-import base.BaseClass;
+import base.WebDriverManager;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
-import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +14,7 @@ import java.util.List;
  * Replace DataTable.asLists() with -> DataTable.cells()
  * Replace DataTable.asMaps() with -> DataTable.entries()
  */
-public class DashboardSteps extends BaseClass {
+public class DashboardSteps extends WebDriverManager {
     @Then("user should see dashboard menu displayed")
     public void user_should_see_dashboard_menu_displayed(DataTable menu) {
         List<String> expectedAdminMenu = menu.values();

@@ -1,11 +1,11 @@
 package pages;
 
-import base.BaseClass;
+import base.WebDriverManager;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class PersonalDetailsPage extends BaseClass {
+public class PersonalDetailsPage extends WebDriverManager {
     @FindBy(id = "personal_txtEmployeeId")
     public WebElement employeeId;
 
@@ -16,7 +16,7 @@ public class PersonalDetailsPage extends BaseClass {
     public WebElement employeeFullName;
 
     public PersonalDetailsPage() {
-        PageFactory.initElements(driver, this);
+        PageFactory.initElements(getDriver(), this);
     }
 
 }

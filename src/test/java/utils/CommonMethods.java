@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
-import static base.BaseClass.*;
+import static base.WebDriverManager.*;
 
 /**
  * Note: This is our BANK, for reusing the methods elsewhere in the framework when we need it.
@@ -30,18 +30,17 @@ public class CommonMethods extends PageInitializer {
      * @param windowTitle String
      */
     public static void switchToWindow(String windowTitle) {
-        Set<String> windows = driver.getWindowHandles();
+        Set<String> windows = getDriver().getWindowHandles();
         for (String windowOrTab : windows) {
-            String title = driver.switchTo().window(windowOrTab).getTitle();
+            String title = getDriver().switchTo().window(windowOrTab).getTitle();
             if (title.contains(windowTitle)) {
-                System.out.println("Window is found! Page Title: " + driver.getTitle() + " URL: " + driver.getCurrentUrl());
+                System.out.println("Window is found! Page Title: " + getDriver().getTitle() + " URL: " + getDriver().getCurrentUrl());
                 break;
             }
         }
     }
 
-    /**
-     * This method will clear and then send value to input field(s).
+     /* This method will clear and then send value to input field(s).
      *
      * @param element WebElement
      * @param value   String
@@ -61,7 +60,7 @@ public class CommonMethods extends PageInitializer {
     }
 
     public static WebDriverWait waitForElement() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(Constants.EXPLICIT_WAIT_TIME));
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(Constants.EXPLICIT_WAIT_TIME));
         return wait;
     }
 
@@ -181,7 +180,7 @@ public class CommonMethods extends PageInitializer {
 
     public static void acceptAlert() {
         try {
-            driver.switchTo().alert().accept();
+            getDriver().switchTo().alert().accept();
         } catch (NoAlertPresentException e) {
             e.printStackTrace();
             System.out.println("Alert is not present.");
@@ -189,17 +188,17 @@ public class CommonMethods extends PageInitializer {
     }
 
     public static void dismissAlert() {
-        driver.switchTo().alert().dismiss();
+        getDriver().switchTo().alert().dismiss();
     }
 
     public static void sendAlertText(String text) {
-        driver.switchTo().alert().sendKeys(text);
+        getDriver().switchTo().alert().sendKeys(text);
     }
 
     public static String getAlertText() {
         String alertText = null;
         try {
-            alertText = driver.switchTo().alert().getText();
+            alertText = getDriver().switchTo().alert().getText();
         } catch (NoAlertPresentException e) {
             e.printStackTrace();
         }
@@ -236,11 +235,11 @@ public class CommonMethods extends PageInitializer {
 
     public static int getNumberOfParagraphs(By by) {
         //List<WebElement> paragraphs = driver.findElements(By.className("jscroll-added"));
-        return driver.findElements(by).size();
+        return getDriver().findElements(by).size();
     }
 
     public static JavascriptExecutor jsExecutor() {
-        return (JavascriptExecutor) driver;
+        return (JavascriptExecutor) getDriver();
     }
 
     /**
@@ -294,7 +293,7 @@ public class CommonMethods extends PageInitializer {
      * @param fileName String as screenshot name
      */
     public static String takeScreenshot(String fileName) {
-        TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
+        TakesScreenshot takesScreenshot = (TakesScreenshot) getDriver();
         File sourceFile = takesScreenshot.getScreenshotAs(OutputType.FILE);
         try {
             FileUtils.copyFile(sourceFile, new File("screenshots/" + fileName + "_" + getTimeStamp() + ".png"));

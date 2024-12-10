@@ -1,6 +1,6 @@
 package steps;
 
-import base.BaseClass;
+import base.WebDriverManager;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -12,7 +12,7 @@ import utils.ExcelUtility;
 import java.util.List;
 import java.util.Map;
 
-public class addMultipleEmployeesSteps extends BaseClass {
+public class addMultipleEmployeesSteps extends WebDriverManager {
     @Given("user navigates to the add employee page")
     public void user_navigates_to_the_add_employee_page() {
         pimPage.navigateToAddEmployee();

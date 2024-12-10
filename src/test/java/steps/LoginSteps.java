@@ -1,13 +1,13 @@
 package steps;
 
-import base.BaseClass;
+import base.WebDriverManager;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import utils.ConfigsReader;
 
-public class LoginSteps extends BaseClass {
+public class LoginSteps extends WebDriverManager {
     @Given("user is on the exelenter webpage")
     public void userIsOnTheExelenterWebpage() {
         setUp();

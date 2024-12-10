@@ -1,13 +1,13 @@
 package pages;
 
-import base.BaseClass;
+import base.WebDriverManager;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utils.ConfigsReader;
 
 
-public class AddEmployeePage extends BaseClass {
+public class AddEmployeePage extends WebDriverManager {
     @FindBy(id = "firstName")
     public WebElement firstName;
     @FindBy(id = "middleName")
@@ -34,7 +34,7 @@ public class AddEmployeePage extends BaseClass {
     public WebElement saveButton;
 
     public AddEmployeePage() {
-        PageFactory.initElements(driver, this);
+        PageFactory.initElements(getDriver(), this);
     }
 
     public void addEmployee(String empFirstname, String empLastname, String filePath) {

@@ -1,11 +1,11 @@
 package pages;
 
-import base.BaseClass;
+import base.WebDriverManager;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class EmployeeListPage extends BaseClass {
+public class EmployeeListPage extends WebDriverManager {
     @FindBy(id = "empsearch_id")
     public WebElement employeeIdSearchField;
     /*
@@ -28,6 +28,6 @@ public class EmployeeListPage extends BaseClass {
     }
 
     public EmployeeListPage() {
-        PageFactory.initElements(driver, this);
+        PageFactory.initElements(getDriver(), this);
     }
 }
